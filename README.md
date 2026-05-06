@@ -3,6 +3,7 @@ This project documents the deployment, configuration, and troubleshooting of an 
 
 
 Technologies Used
+
 Ubuntu 24.04 LTS
 Oracle VirtualBox
 Apache2
@@ -46,9 +47,6 @@ Blocked all other incoming traffic by default
 
 <img width="477" height="144" alt="step 0 pt 2" src="https://github.com/user-attachments/assets/4f2e427b-a101-4cb8-a800-7a33cb041636" />
 
-
-<img width="476" height="335" alt="osticket fail" src="https://github.com/user-attachments/assets/31a42a2a-9d05-4967-a978-9ca030c5824f" />
-<img width="476" height="335" alt="osticket fail" src="https://github.com/user-attachments/assets/c26576c6-6100-4e5e-b8b8-55cbc1ed95a6" />
 Step 1 — osTicket Installation Script
 Method Used
 
@@ -80,18 +78,16 @@ Fix
 
 Used the nano text editor instead.
 
-📸 Screenshot Placeholder
-
 <img width="1215" height="614" alt="nano script" src="https://github.com/user-attachments/assets/0e8d28c6-1467-4fb5-a9f7-297e9baa15a1" />
 
 
 <img width="813" height="486" alt="Screenshot 2026-05-05 134923" src="https://github.com/user-attachments/assets/abadfd63-aec3-41f4-9d07-a4492cfccac5" />
 
 
+<img width="476" height="335" alt="osticket fail" src="https://github.com/user-attachments/assets/700e5315-d1fc-47d6-bee8-88cdf9c972f0" />
 
 
-nano editor with installation script
-⚠️ Installation Script Problems
+Installation Script Problems
 
 The installation script was supposed to:
 
@@ -105,8 +101,7 @@ Download osTicket
 
 However, multiple parts of the script failed during execution.
 
-🔧 TROUBLESHOOTING — osTicket Download Failure
-Issue
+TROUBLESHOOTING — osTicket Download Failure Issue
 
 The script failed while attempting to download osTicket using:
 
@@ -159,17 +154,17 @@ unzip osTicket.zip
 
 Verified extracted files successfully.
 
-📸 Screenshot Placeholder
-
-wget 404 failure
-successful repository download
-unzip output
+<img width="477" height="199" alt="wget failure" src="https://github.com/user-attachments/assets/4f95dcd9-0d46-4b2b-82b7-69c380e6ec62" />
 
 
-<img width="476" height="335" alt="osticket fail" src="https://github.com/user-attachments/assets/c36b34e6-e575-4eef-87c0-13f040a2ed2f" />
-<img width="476" height="335" alt="osticket fail" src="https://github.com/user-attachments/assets/68e7c9ff-d203-41ae-927f-4fd6ceae47f6" />
-<img width="476" height="335" alt="osticket fail" src="https://github.com/user-attachments/assets/a7c8bb60-a954-480c-b69b-8a62fb44cc2b" />
-⚙️ Step 3 — MariaDB Database Configuration
+<img width="478" height="153" alt="install wget" src="https://github.com/user-attachments/assets/a300ca11-599e-49d6-b831-8608b4ac35c0" />
+
+<img width="477" height="79" alt="curl" src="https://github.com/user-attachments/assets/a7c25f77-5ca6-4986-9a6f-efcf9bb8ec25" />
+
+<img width="479" height="310" alt="wget unpack" src="https://github.com/user-attachments/assets/a30a19e5-b524-4ed2-9f38-4b0ae2498b4b" />
+
+
+Step 2 — MariaDB Database Configuration
 
 Opened MariaDB:
 
@@ -210,11 +205,12 @@ MariaDB returned:
 
 Query OK
 
-📸 Screenshot Placeholder
+<img width="478" height="334" alt="587873019-8bb00973-0346-4b3a-9caf-e3192c8ec454" src="https://github.com/user-attachments/assets/9697cc89-9b92-4f69-aaa1-f4ddb76ed580" />
 
-duplicate database/user errors
-successful GRANT + FLUSH PRIVILEGES
-⚠️ Step 4 — osTicket Installer Authentication Failure
+<img width="482" height="337" alt="587874046-7690134a-73e1-48c0-b441-7843551c64cf" src="https://github.com/user-attachments/assets/2d0b6f7d-bcfc-4a6f-944f-54eb86fc670f" />
+
+
+Step 4 — osTicket Installer Authentication Failure
 
 Accessed:
 
@@ -224,10 +220,10 @@ During installation, osTicket returned:
 
 Access denied for user 'osticket'@'localhost'
 
-📸 Screenshot Placeholder
 
-osTicket installer access denied error
-🔧 TROUBLESHOOTING — Authentication Failure
+
+
+TROUBLESHOOTING — Authentication Failure
 Root Cause
 
 Misunderstood the installer prompt.
@@ -274,12 +270,17 @@ Password	osticket_password
 
 Installation completed successfully.
 
-📸 Screenshot Placeholder
+<img width="456" height="341" alt="sqlfatalerror" src="https://github.com/user-attachments/assets/54a4cf90-f568-46fd-b5b0-041c17c4e38d" />
 
-failed mysql login
-successful mysql login
-osTicket install success page
-🔐 Step 5 — Post-Install Security
+
+<img width="475" height="141" alt="successful sql login" src="https://github.com/user-attachments/assets/9335d601-9e26-41af-8b6e-c601ed266935" />
+
+
+<img width="456" height="341" alt="osticket install" src="https://github.com/user-attachments/assets/b0511c01-31d2-4cbe-84d4-b6d7f701a381" />
+
+
+
+Step 5 — Post-Install Security
 
 Removed setup directory:
 
@@ -293,11 +294,13 @@ prevents accidental reinstallation
 reduces attack surface
 protects configuration settings
 
-📸 Screenshot Placeholder
+<img width="455" height="340" alt="Configuration file missing " src="https://github.com/user-attachments/assets/7aec6616-6e15-458e-8533-c73610caf7c5" />
 
-setup directory warning
-terminal deletion command
-⚙️ Step 6 — Departments & Staff
+
+<img width="479" height="106" alt="var" src="https://github.com/user-attachments/assets/5b73747f-46ad-4caa-94d9-ea8718249aae" />
+
+
+Step 6 — Departments & Staff
 
 Created departments:
 
@@ -306,19 +309,23 @@ Billing
 
 Configured staff users inside the admin panel.
 
-📸 Screenshot Placeholder
+<img width="736" height="371" alt="supportmanjohn" src="https://github.com/user-attachments/assets/3e4a73b2-4a1f-4f73-944d-80863b42246a" />
 
-departments page
-staff configuration
-⚙️ Step 7 — SLA Policies
+
+<img width="797" height="422" alt="sarahbilling" src="https://github.com/user-attachments/assets/54cfb3fb-6263-43ad-814a-46504c2434f7" />
+
+
+
+Step 7 — SLA Policies
 
 Created SLA policies:
 
 SLA	Grace Period
 Critical Issues	1 Hour
 Standard Issues	4 Hours
-🔧 TROUBLESHOOTING — SLA UI Differences
-Issue
+
+
+TROUBLESHOOTING — SLA UI Differences Issue
 
 The UI terminology differed from the tutorial instructions.
 
@@ -338,10 +345,13 @@ Lesson
 
 Real systems rarely match tutorials exactly.
 
-📸 Screenshot Placeholder
 
-SLA configuration page
-⚙️ Step 8 — Custom Ticket Fields
+
+<img width="563" height="374" alt="sla" src="https://github.com/user-attachments/assets/ec305e8d-84b9-46db-9824-140cddec9cbb" />
+
+
+
+Step 8 — Custom Ticket Fields
 
 Added custom ticket fields:
 
@@ -361,7 +371,9 @@ Desktop
 Laptop
 Printer
 Network
-🔧 TROUBLESHOOTING — Custom Field Validation
+
+
+TROUBLESHOOTING — Custom Field Validation
 Problems Encountered
 form would not save
 missing variable errors
@@ -395,12 +407,16 @@ Resolution
 
 Configured the field correctly and saved successfully.
 
-📸 Screenshot Placeholder
+<img width="577" height="321" alt="field error" src="https://github.com/user-attachments/assets/41a07f33-79ff-4e53-8485-a3ff69d4ee90" />
 
-validation error
-correct dropdown config
-successful field creation
-⚙️ Step 9 — Ticket Workflow Testing
+
+<img width="379" height="285" alt="Field config" src="https://github.com/user-attachments/assets/fc3359b8-b89c-4cf4-909d-7aa05bbdb6bc" />
+
+
+<img width="577" height="388" alt="sucessful form update" src="https://github.com/user-attachments/assets/a22974c7-635c-4e22-91ea-f394efba1cd3" />
+
+
+Step 9 — Ticket Workflow Testing
 
 Opened user portal:
 
@@ -419,9 +435,12 @@ Issue submitted successfully.
 
 📸 Screenshot Placeholder
 
-ticket submission form
-ticket confirmation
-⚙️ Step 10 — Ticket Resolution Workflow
+<img width="489" height="374" alt="ghost copies" src="https://github.com/user-attachments/assets/3d9449d6-0218-47aa-81fa-4c7f7c5f9bf0" />
+
+<img width="577" height="388" alt="sucessful form update" src="https://github.com/user-attachments/assets/f5b8e06f-f68a-4fcf-8f89-1090b3b1beeb" />
+
+
+Step 10 — Ticket Resolution Workflow
 
 Logged into admin panel and:
 
@@ -438,12 +457,20 @@ User response:
 
 Printer issue resolved. Device operational.
 
-📸 Screenshot Placeholder
+<img width="739" height="369" alt="ticket que" src="https://github.com/user-attachments/assets/ae75256e-cac1-48df-91b4-5cfbfa33ec23" />
 
-ticket queue
-internal note
-closed ticket
-⚠️ Additional Observation — Email Errors
+
+<img width="563" height="352" alt="6ternal note" src="https://github.com/user-attachments/assets/10b14052-9ae1-49a2-b9ca-0aaae44f8661" />
+
+
+<img width="564" height="179" alt="ticket closed" src="https://github.com/user-attachments/assets/e3963117-a214-48f0-9756-be29efb73753" />
+
+
+
+<img width="737" height="378" alt="emailerroe" src="https://github.com/user-attachments/assets/d06e6ccc-94da-4fa4-90a1-0e11da9c9463" />
+
+
+Additional Observation — Email Errors
 
 Observed mailer errors inside system logs.
 
@@ -459,7 +486,9 @@ Lesson
 
 Not all system errors are blockers. Prioritize core functionality first.
 
-📊 Skills Demonstrated
+Skills Demonstrated
+
+
 Linux Administration
 package management
 firewall configuration
@@ -478,15 +507,18 @@ SLA creation
 ticket lifecycle management
 user communication
 incident resolution
-🧠 Key Takeaways
+
+
+Key Takeaways
 Most failures are configuration-related
 Scripts should always be verified manually
 SQL errors require contextual interpretation
 Authentication is a common deployment failure point
 Troubleshooting is the real technical skill
-🧾 Resume Summary
-Deployed and configured osTicket in an Ubuntu VirtualBox environment. Troubleshot MySQL authentication issues, repaired failed installer dependencies, configured SLA policies, created custom ticket fields, and completed full ticket lifecycle testing from submission to resolution.
-✅ Final Result
+
+
+
+Final Result
 
 Successfully deployed and configured a fully functional osTicket help desk environment with:
 
